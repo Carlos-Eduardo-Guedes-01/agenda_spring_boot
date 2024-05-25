@@ -43,7 +43,7 @@ public class FormEvento {
             redirectAttributes.addFlashAttribute("adiciona", evento.getNome());
             return "redirect:/";
         } catch (ParseException e) {
-            redirectAttributes.addFlashAttribute("error", "Formato de data inválido.");
+            redirectAttributes.addFlashAttribute("error", "A data do evento não pode ser uma data que já passou.");
             return "redirect:/CadEvento";
         }
     }

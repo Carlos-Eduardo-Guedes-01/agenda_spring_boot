@@ -13,3 +13,9 @@
 <img src="./imagens_projeto/img_06.jpeg" width=540>
 <h4>6.Confirmação de cadastro de evento: </h4>
 <img src="./imagens_projeto/img_07.jpeg" width=540>
+<h4>7.Não deixa adicionar evento em datas que já passaram: </h4>
+<img src="./imagens_projeto/Adicionar_evento_com_data_invalida.png" width=540>
+<h4>8.Tela de Editar evento: </h4>
+<img src="./imagens_projeto/editar.png" width=540>
+<h4>9.Modal de confirmar edição das informações do evento: </h4>
+<img src="./imagens_projeto/modal_editar.png" width=540>
