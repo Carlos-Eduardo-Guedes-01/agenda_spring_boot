@@ -19,3 +19,5 @@
 <img src="./imagens_projeto/editar.png" width=540>
 <h4>9.Modal de confirmar edição das informações do evento: </h4>
 <img src="./imagens_projeto/modal_editar.png" width=540>
+<h4>10.Confirmação de edição de informações: </h4>
+<img src="./imagens_projeto/confirmacao_edicao.png" width=540>
