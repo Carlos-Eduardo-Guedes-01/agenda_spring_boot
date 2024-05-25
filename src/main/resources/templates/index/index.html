@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/css/estilo.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="icon" href="static/img/calendario.png">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <title>Eventos</title>
+    <script>
+        function exibirModalConfirmacao(id) {
+            $('#modal-confirmacao').data('id', id); // Define o ID na modal de confirmação
+            $('#modal-confirmacao').modal('show'); // Exibe a modal de confirmação
+        }
+
+        $(document).ready(function () {
+            $('#confirmar-delecao').click(function () {
+                var id = $('#modal-confirmacao').data('id');
+                // Redirecionar para a rota de deleção
+                window.location.href = '/evento/' + id;
+                // Feche a modal
+                $('#modal-confirmacao').modal('hide');
+            });
+
+            $('#cancelar-delecao').click(function () {
+                // Feche a modal
+                $('#modal-confirmacao').modal('hide');
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <header class="cabecalho">
+        <div class="header">
+            <div class="ocultar">
+                <h1>Lista de Eventos</h1>
+            </div>
+
+            <button class="botao-evento"><a href="/CadEvento" class="cadastrarEvento">CADASTRAR EVENTO<img
+                        src="./static/img/botao-adicionar.png" class="add-button"></a></button>
+        </div>
+    </header>
+    <main class="corpo">
+        <div th:if="${remove != null}" class="mensagem_negativa">
+            O Evento &nbsp; <b th:text="${remove}"></b> &nbsp; foi removido com sucesso!
+        </div>
+        <div th:if="${adiciona != null}" class="mensagem">
+            O Evento &nbsp; <b th:text="${adiciona}"></b> &nbsp; foi adicionado com sucesso!
+        </div>
+        <div th:if="${altera != null}" class="mensagem">
+            O Evento &nbsp; <b th:text="${altera}"></b> &nbsp; foi alterado com sucesso!
+        </div>
+        <table class="tabela-dados">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Local</th>
+                    <th>Data</th>
+                    <th>Horário</th>
+                    <th class="delete">Deletar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="evento : ${eventos}">
+                    <td>
+                        <a th:href="@{/details/{id}(id=${evento.id})}" th:text="${evento.nome}"></a>
+                    </td>
+                    <td>
+                        <a th:href="@{/details/{id}(id=${evento.id})}" th:text="${evento.local}"></a>
+                    </td>
+                    <td>
+                        <a th:href="@{/details/{id}(id=${evento.id})}" th:text="${evento.data}"></a>
+                    </td>
+                    <td>
+                        <a th:href="@{/details/{id}(id=${evento.id})}" th:text="${evento.horario}"></a>
+                    </td>
+                    <td class="delete">
+                        <button class="botao-remover" th:attr="value=${evento.id}"
+                            onclick="exibirModalConfirmacao(this.value)">
+                            <img src="./static/img/lixeira.png" alt="remover" class="remover">
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- Modal de Confirmação -->
+        <div id="modal-confirmacao" class="modal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Confirmação de Deleção</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Você tem certeza que deseja deletar este evento?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="confirmar-delecao" class="btn btn-danger">Confirmar</button>
+                        <button id="cancelar-delecao" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="rodape">
+        <div class="textoRodape">
+            &copy; todos os direitos reservados.
+        </div>
+    </footer>
+</body>
+
+</html>

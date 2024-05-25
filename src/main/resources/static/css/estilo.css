@@ -1,0 +1,323 @@
+body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.voltar {
+    color: black;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.cabecalho {
+    width: 100vw;
+    height: 15vh;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: #3196FD;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.cabecalho .header {
+    width: 80vw;
+    height: 15vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.corpo {
+    margin-top: 1vh;
+    width: 100vw;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.corpo2 {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.rodape {
+    width: 100vw;
+    height: 15vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: #e5e5e5;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.textoRodape {
+    width: 80vw;
+    height: 15vh;
+    display: flex;
+    align-items: center;
+}
+
+.botao-evento {
+    background-color: #27a695;
+    border: 0px solid black;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.8);
+    width: 230px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cadastrarEvento {
+    width: 230px;
+    height: 30px;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: white;
+}
+
+.add-button {
+    width: 20px;
+}
+
+form.formulario {
+    width: 35vw;
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.campos {
+    width: 35vw;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    align-items: center;
+    gap: 20px;
+}
+
+input {
+    width: 35vw;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    align-items: center;
+    gap: 20px;
+    color: black;
+    background-color: #82c9ee;
+    border: 1px solid #3f72cc;
+    height: 30px;
+}
+
+
+input:focus {
+    padding-left: 10px;
+    background-color: #e8f0fe;
+    outline-color: #93b1e5;
+}
+
+.campo {
+    display: flex;
+    gap: 10px;
+}
+
+.height3 {
+    height: 3vh;
+}
+
+.botao_enviar {
+    width: 150px;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: #7dbd00;
+}
+
+.tabela-dados {
+    border-collapse: collapse;
+    width: 80vw;
+}
+
+.tabela-dados thead {
+    text-align: center;
+    height: 60px;
+
+}
+
+.tabela-dados a {
+    height: 60px;
+    color: blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.delete {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 62px;
+}
+
+.tabela-dados tr {
+    height: 60px;
+}
+
+.tabela-dados td {
+    border-left: 1px solid rgba(0, 0, 0, 0.305);
+}
+
+.tabela-dados tbody {
+    border-right: 1px solid rgba(0, 0, 0, 0.305);
+}
+
+.botao-remover {
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    cursor: pointer;
+}
+
+.remover {
+    width: 30px;
+}
+
+.mensagem {
+    width: 60vw;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border-radius: 30px;
+    border: 2px solid #155724;
+    color: #155724;
+    background-color: #d4edda;
+}
+
+.mensagem_negativa {
+    width: 60vw;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border-radius: 30px;
+    border: 2px solid #571515;
+    color: #571515;
+    background-color: #edd4d4;
+}
+
+.botao_deletar {
+    width: 150px;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: #de5a5a;
+}
+
+.botao_voltar {
+    width: 150px;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: #707070;
+}
+
+.botoes {
+    width: 35vw;
+    display: flex;
+    justify-content: space-between;
+}
+
+.separador {
+    width: 300px;
+    gap: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+.informacoes {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+
+h1 {
+    display: flex;
+    gap: 10px;
+}
+
+.centralizar {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .ocultar {
+        display: none;
+    }
+
+
+
+    .botao_enviar,
+    .botao_deletar {
+        width: 100px;
+    }
+
+    .botao_voltar {
+        width: 70px;
+    }
+
+    .botoes {
+        width: 100vw;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .separador {
+        width: 65vw;
+    }
+
+    .campos {
+        width: 100vw;
+    }
+
+    .cadastrarEvento {
+        width: 130px;
+        height: 30px;
+        font-size: 8pt;
+    }
+
+    .tabela-dados {
+        width: 97vw;
+    }
+
+    .delete {
+        display: none;
+    }
+
+    .tabela-dados a {
+        font-size: 8pt;
+    }
+}

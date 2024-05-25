@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/css/estilo.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="icon" href="static/img/calendario.png">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <title>Eventos</title>
+    <script>
+        function exibirModalConfirmacao(id) {
+            $('#modal-confirmacao').data('id', id); // Define o ID na modal de confirmação
+            $('#modal-confirmacao').modal('show'); // Exibe a modal de confirmação
+        }
+
+        $(document).ready(function () {
+            $('#confirmar-delecao').click(function () {
+                var id = $('#modal-confirmacao').data('id');
+                // Redirecionar para a rota de deleção
+                window.location.href = '/evento/' + id;
+                // Feche a modal
+                $('#modal-confirmacao').modal('hide');
+            });
+
+            $('#cancelar-delecao').click(function () {
+                // Feche a modal
+                $('#modal-confirmacao').modal('hide');
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <center>
+        <h1>ERROR</h1>
+    </center>
+</body>
+
+</html>

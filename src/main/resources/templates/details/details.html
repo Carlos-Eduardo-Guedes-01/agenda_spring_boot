@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/estilo.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="icon" href="/static/img/calendario.png">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#meuFormulario').submit(function (event) {
+                event.preventDefault(); // Impede o envio do formulário
+                exibirModalConfirmacao();
+            });
+
+            function exibirModalConfirmacao() {
+                $('#modal-confirmacao').modal('show'); // Exibe a modal de confirmação
+            }
+
+            $('#confirmar-alteracao').click(function () {
+                $('#meuFormulario').off("submit").submit(); // Submete o formulário
+                $('#modal-confirmacao').modal('hide'); // Fecha a modal de confirmação
+            });
+
+            $('#cancelar-alteracao').click(function () {
+                $('#modal-confirmacao').modal('hide'); // Fecha a modal de confirmação
+            });
+            $("#voltar").click(function () {
+                window.location.href = '/'
+            });
+
+        });
+        function exibirModalConfirmacaoDelecao(id) {
+            $('#modal-confirmacao-delecao').data('id', id); // Define o ID na modal de confirmação
+            $('#modal-confirmacao-delecao').modal('show'); // Exibe a modal de confirmação
+        }
+
+        $(document).ready(function () {
+            $('#confirmar-delecao').click(function () {
+                var id = $('#modal-confirmacao-delecao').data('id');
+                // Redirecionar para a rota de deleção
+                window.location.href = '/evento/' + id;
+                // Feche a modal
+                $('#modal-confirmacao-delecao').modal('hide');
+            });
+
+            $('#cancelar-delecao').click(function () {
+                // Feche a modal
+                $('#modal-confirmacao-delecao').modal('hide');
+            });
+        });
+    </script>
+    <title>Detalhes do Evento</title>
+</head>
+
+<body>
+    <header class="cabecalho">
+        <h1>Detalhes do Evento</h1>
+    </header>
+
+    <main class="corpo2">
+
+        <section class="formulario">
+            <form id="meuFormulario" th:action="@{/edita/{id}(id=${evento.id})}" method="POST" class="formulario">
+                <div class="campos">
+                    <label class="campo"> Nome<div style="color: brown;font-weight: bold;">*</div> : &nbsp;<input
+                            type="text" th:value="${evento.nome}" name="nome" required /></label>
+                    <label class="campo">Local<div style="color: brown;font-weight: bold;">*</div> : &nbsp;<input
+                            type="text" th:value="${evento.local}" name="local" required /></label>
+                    <label class="campo">Data<div style="color: brown;font-weight: bold;">*</div> : &nbsp;<input
+                            type="date" th:value="${evento.data}" name="data" required /></label>
+                    <label class="campo">Horario<div style="color: brown;font-weight: bold;">*</div> : &nbsp;<input
+                            type="time" th:value="${evento.horario}" name="horario" required /></label>
+                    <div class="height3"></div>
+                    <div class="botoes">
+                        <div class="width_10"></div>
+                        <button type="button" class="botao_voltar" id="voltar" onclick="voltar()">Voltar</button>
+
+                        <div class="separador">
+                            <button type="submit" class="botao_enviar">Editar</button>
+                            <button class="botao_deletar" th:attr="value=${evento.id}"
+                                onclick="exibirModalConfirmacaoDelecao(this.value)">Deletar</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </section>
+    </main>
+    <!-- Modal de Confirmação de Alteração -->
+    <div id="modal-confirmacao" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Confirmação de Deleção</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Você tem certeza que deseja alterar este evento?</p>
+                </div>
+                <div class="modal-footer">
+                    <button id="confirmar-alteracao" type="button" class="btn btn-success">Confirmar</button>
+                    <button id="cancelar-alteracao" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal de Confirmação de Deleção -->
+    <!-- Modal de Confirmação -->
+    <div id="modal-confirmacao-delecao" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Confirmação de Deleção</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Você tem certeza que deseja deletar este evento?</p>
+                </div>
+                <div class="modal-footer">
+                    <button id="confirmar-delecao" class="btn btn-danger">Confirmar</button>
+                    <button id="cancelar-delecao" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="rodape">
+        <div class="textoRodape">
+            &copy; todos os direitos reservados.
+        </div>
+    </footer>
+</body>
+
+</html>
