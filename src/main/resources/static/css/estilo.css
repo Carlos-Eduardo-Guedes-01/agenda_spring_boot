@@ -6,6 +6,7 @@ body {
     display: flex;
     flex-direction: column;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    transition: background-color .5s;
 }
 
 .voltar {
@@ -96,7 +97,7 @@ body {
 }
 
 .add-button {
-    width: 20px;
+    width: 25px;
 }
 
 form.formulario {
@@ -272,12 +273,101 @@ h1 {
     align-items: center;
 }
 
+.acoes2 {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center
+}
+
+.acoes {
+    width: 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center
+}
+
+.auxilio {
+    display: none;
+}
+
+/*  INÍCIO MENU HANBURGER   */
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 14pt;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+.main {
+    display: none;
+}
+
+
+/*   FIM MENU HAMBÚRGUER   */
+
+
 @media (max-width: 768px) {
-    .ocultar {
+    a .cadastrarEvento {
+        width: 45vw;
+        font-size: 18pt;
+    }
+
+    .auxilio {
+        display: block;
+    }
+
+    .cadastrarEvento {
+        width: 100vw;
+    }
+
+    .acoes {
+        width: 45vw;
+    }
+
+    .acoes a {
+        display: flex;
+        gap: 10px;
+    }
+
+    .acoes2 {
         display: none;
     }
 
-
+    .main {
+        display: block;
+    }
 
     .botao_enviar,
     .botao_deletar {
@@ -303,11 +393,7 @@ h1 {
         width: 100vw;
     }
 
-    .cadastrarEvento {
-        width: 130px;
-        height: 30px;
-        font-size: 8pt;
-    }
+
 
     .tabela-dados {
         width: 97vw;
@@ -319,5 +405,15 @@ h1 {
 
     .tabela-dados a {
         font-size: 8pt;
+    }
+
+    .header {
+        width: 100vw;
+    }
+
+    .sidenav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 }

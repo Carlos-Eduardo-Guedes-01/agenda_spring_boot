@@ -36,14 +36,35 @@
 <body>
     <header class="cabecalho">
         <div class="header">
+            <div class="main">
+                <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </span>
+            </div>
             <div class="ocultar">
                 <h1>Lista de Eventos</h1>
             </div>
-
-            <button class="botao-evento"><a href="/CadEvento" class="cadastrarEvento">CADASTRAR EVENTO<img
-                        src="./static/img/botao-adicionar.png" class="add-button"></a></button>
+            <div class="acoes2">
+                <button class="botao-evento"><a href="/CadEvento" class="cadastrarEvento">CADASTRAR EVENTO<img
+                            src="./static/img/botao-adicionar.png" class="add-button"></a></button>
+                <button class="botao-evento"><a href="/CadEvento" class="cadastrarEvento">REALIZAR CANDIDATURA<img
+                            src="./static/img/candidatar.png" class="add-button"></a></button>
+            </div>
+            <div class="auxilio"></div>
         </div>
     </header>
+
+    <!-- MENU HAMBÚRGUER -->
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="acoes">
+            <a href="/CadEvento" class="cadastrarEvento">CADASTRAR EVENTO<img src="./static/img/botao-adicionar.png"
+                    class="add-button"></a>
+            <a href="/CadEvento" class="cadastrarEvento">REALIZAR CANDIDATURA<img src="./static/img/candidatar.png"
+                    class="add-button"></a>
+        </div>
+    </div>
+
+
+    <!-- FIM MENU HAMBÚRGUER -->
     <main class="corpo">
         <div th:if="${remove != null}" class="mensagem_negativa">
             O Evento &nbsp; <b th:text="${remove}"></b> &nbsp; foi removido com sucesso!
@@ -113,6 +134,19 @@
             &copy; todos os direitos reservados.
         </div>
     </footer>
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "70vw";
+            document.getElementById("main").style.marginLeft = "250px";
+            document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+            document.body.style.backgroundColor = "white";
+        }
+    </script>
 </body>
 
 </html>
