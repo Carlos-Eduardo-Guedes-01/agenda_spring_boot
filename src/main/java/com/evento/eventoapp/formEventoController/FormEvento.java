@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.evento.eventoapp.models.Eventos;
+import com.evento.eventoapp.repositorys.EventoRepository;
 
 @Controller
 public class FormEvento {

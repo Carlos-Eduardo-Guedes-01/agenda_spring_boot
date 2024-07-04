@@ -1,4 +1,4 @@
-package com.evento.eventoapp.formEventoController;
+package com.evento.eventoapp.repositorys;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

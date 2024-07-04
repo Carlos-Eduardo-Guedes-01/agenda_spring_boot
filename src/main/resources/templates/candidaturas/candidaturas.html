@@ -62,9 +62,6 @@
                     class="add-button"></a>
         </div>
     </div>
-
-
-    <!-- FIM MENU HAMBÚRGUER -->
     <main class="corpo">
         <div th:if="${remove != null}" class="mensagem_negativa">
             O Evento &nbsp; <b th:text="${remove}"></b> &nbsp; foi removido com sucesso!
@@ -74,59 +71,6 @@
         </div>
         <div th:if="${altera != null}" class="mensagem">
             O Evento &nbsp; <b th:text="${altera}"></b> &nbsp; foi alterado com sucesso!
-        </div>
-        <table class="tabela-dados">
-            <thead>
-                <tr>
-                    <th>Nome</th>
-                    <th>Local</th>
-                    <th>Data</th>
-                    <th>Horário</th>
-                    <th class="delete">Deletar</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr th:each="evento : ${eventos}">
-                    <td>
-                        <a th:href="@{/details/{id}(id=${evento.id})}" th:text="${evento.nome}"></a>
-                    </td>
-                    <td>
-                        <a th:href="@{/details/{id}(id=${evento.id})}" th:text="${evento.local}"></a>
-                    </td>
-                    <td>
-                        <a th:href="@{/details/{id}(id=${evento.id})}" th:text="${evento.data}"></a>
-                    </td>
-                    <td>
-                        <a th:href="@{/details/{id}(id=${evento.id})}" th:text="${evento.horario}"></a>
-                    </td>
-                    <td class="delete">
-                        <button class="botao-remover" th:attr="value=${evento.id}"
-                            onclick="exibirModalConfirmacao(this.value)">
-                            <img src="./static/img/lixeira.png" alt="remover" class="remover">
-                        </button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <!-- Modal de Confirmação -->
-        <div id="modal-confirmacao" class="modal" tabindex="-1" role="dialog">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Confirmação de Deleção</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <p>Você tem certeza que deseja deletar este evento?</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button id="confirmar-delecao" class="btn btn-danger">Confirmar</button>
-                        <button id="cancelar-delecao" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                    </div>
-                </div>
-            </div>
         </div>
     </main>
     <footer class="rodape">

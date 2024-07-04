@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/estilo.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="icon" href="/static/img/calendario.png">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+    <title>Inscrição</title>
+</head>
+
+<body>
+    <header class="cabecalho">
+        <h1>Inscrição</h1>
+    </header>
+
+    <main class="corpo2">
+        <div th:if="${falha != null}" class="mensagem_negativa">
+            Não foi possível se candidatar pois você é menor de idade!
+        </div>
+        <div th:if="${adiciona != null}" class="mensagem">
+            Candidatura realizada com sucesso!
+        </div>
+        <div th:if="${altera != null}" class="mensagem">
+            O Evento &nbsp; <b th:text="${altera}"></b> &nbsp; foi alterado com sucesso!
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Selecione o evento</h5>
+                            <form id="meuFormulario" action="/candidatar" method="POST">
+                                <div class="form-group">
+                                    <!-- Adicione campos de seleção de evento vindo do banco de dados mostrando com thymeleaf -->
+                                    <select class="form-control" name="id">
+                                        <option text="Selecione o evento">----Selecione o evento----</option>
+                                        <option th:each="event : ${eventos}" th:value="${event.id}"
+                                            th:text="${event.nome}">
+                                        </option>
+                                    </select>
+
+                                    <label for="nome">Nome:</label>
+                                    <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome">
+
+                                    <label for="email">Email:</label>
+                                    <input type="email" class="form-control" id="email" name="email"
+                                        placeholder="Email">
+
+                                    <label for="data-nascimetno">Data de Nascimento:</label>
+                                    <input type="date" class="form-control" id="data-nascimetno" name="dataNascimento"
+                                        placeholder="Data de Nascimento">
+
+
+                                    <label for="senha">Senha:</label>
+                                    <input type="password" class="form-control" id="senha" name="senha"
+                                        placeholder="Senha">
+
+                                    <label for="senha">Confirmar Senha:</label>
+                                    <input type="password" class="form-control" id="confirmar-senha"
+                                        name="confirmarSenha" placeholder="Confirme a Senha">
+
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary">Inscrição</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Abaixo seleção de evento para inscrição -->
+
+    </main>
+    <footer class="rodape">
+        <div class="textoRodape">
+            &copy; todos os direitos reservados.
+        </div>
+    </footer>
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "70vw";
+            document.getElementById("main").style.marginLeft = "250px";
+            document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+            document.body.style.backgroundColor = "white";
+        }
+    </script>
+</body>
+
+</html>
